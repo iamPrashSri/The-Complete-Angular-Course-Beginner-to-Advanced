@@ -1,0 +1,11 @@
+<!-- <p>
+zippy works!
+</p> -->
+
+<div class="zippy">
+	<div class="zippy-heading" [ngClass]="{'expanded':isExpanded()}">{{ title }}</div>
+	<hr />
+	<div class="zippy-body">
+		<ng-content></ng-content>
+	</div>
+</div>

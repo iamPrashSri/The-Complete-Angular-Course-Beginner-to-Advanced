@@ -1,25 +1,25 @@
 <body>
-<!-- 	<hello name="{{ name }}"></hello>
+	<!-- 	<hello name="{{ name }}"></hello>
   <p>
     Start editing to see some magic happen :)
   </p>
 
   <button class="btn btn-primary" (click)="clickMe()" > click me </button> -->
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link" [ngClass]="{'active': viewMode == 'map'}" (click)="viewMode = 'map'">Map View</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" [ngClass]="{'active': viewMode == 'list'}" (click)="viewMode = 'list'">List View</a>
-    </li>
-  </ul>
-  <div [ngSwitch]="viewMode">
-	  <div *ngSwitchCase="'map'">Map View Content</div>
-    <div *ngSwitchCase="'list'">List View Content</div>
-    <div *ngSwitchDefault>Otherwise</div>
-  </div>
+	<ul class="nav nav-pills">
+		<li class="nav-item">
+			<a class="nav-link" [ngClass]="{'active': viewMode == 'map'}" (click)="viewMode = 'map'">Map View</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" [ngClass]="{'active': viewMode == 'list'}" (click)="viewMode = 'list'">List View</a>
+		</li>
+	</ul>
+	<div [ngSwitch]="viewMode">
+		<div *ngSwitchCase="'map'">Map View Content</div>
+		<div *ngSwitchCase="'list'">List View Content</div>
+		<div *ngSwitchDefault>Otherwise</div>
+	</div>
 
-  <!-- <button (click)="onAdd()">Add</button>
+	<!-- <button (click)="onAdd()">Add</button>
   <ul>
     <li *ngFor="let course of courses; index as i">
         {{ i }} - {{ course.name }} <button (click)="onRemove(i)">Remove</button>
@@ -27,16 +27,16 @@
   </ul> -->
 
 
-  <!-- Using TrackBy -->
-  <button (click)="loadCourses()">Courses</button>
-  <ul>
-    <li *ngFor="let course of courses; trackBy: trackCourse">
-      {{ course.name }}
-    </li>
-  </ul>
-  
-  <!-- Using ngStyle -->
-  <button
+	<!-- Using TrackBy -->
+	<button (click)="loadCourses()">Courses</button>
+	<ul>
+		<li *ngFor="let course of courses; trackBy: trackCourse">
+			{{ course.name }}
+		</li>
+	</ul>
+
+	<!-- Using ngStyle -->
+	<button
     [ngStyle]="{
       'backgroundColor': canSave ? 'blue' : 'gray',
       'color': canSave ? 'white' : 'black',
@@ -45,10 +45,18 @@
   >
   Save
   </button>
-  <br/>
+	<br/>
 
-  <span>{{ task.assignee.name }}</span><br/>
+	<span>{{ task.assignee.name }}</span><br/>
 
-  <!-- <input type="text" appImputFormat [format]="'uppercase'"> -->
-  <input type="text" [appImputFormat]="'uppercase'">
+	<!-- <input type="text" appImputFormat [format]="'uppercase'"> -->
+	<input type="text" [appImputFormat]="'uppercase'">
+	<br/><br/>
+
+	<zippy title="Shipping Details">
+		Shipping Details Content
+	</zippy>
+	<zippy title="Billing Details">
+		Billing Details Content
+	</zippy>
 </body>
