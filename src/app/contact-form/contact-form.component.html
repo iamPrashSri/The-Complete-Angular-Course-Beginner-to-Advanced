@@ -37,5 +37,36 @@ contact-form works!
 		<label for="comment">Comment</label>
 		<textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
 	</div>
-	<button class="btn btn-primary">Submit</button>
+  <div class="checkbox">
+    <label>
+      <input 
+        type="checkbox" 
+        ngModel name="isSubscribed"/>
+        Subscribe to Mailing List
+    </label>
+
+    <div class="form-group">
+      <label for="contactMethod">Contact Method</label>
+      <select 
+        ngModel name="contactMethod" 
+        id="contactMethod" 
+        class="form-control">
+        <option 
+          *ngFor="let method of contactMethods"
+          [value]="method.id">
+          {{ method.name }}
+        </option>
+      </select>
+    </div>
+
+    <p>
+      {{ fDirective.value | json }}
+    </p>
+  </div>
+  <!-- Disabled Property on Button using ngForm directive -->
+	<button 
+    class="btn btn-primary" 
+    [disabled]="!fDirective.valid">
+    Submit
+  </button>
 </form>
