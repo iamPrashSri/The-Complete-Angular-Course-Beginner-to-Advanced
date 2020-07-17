@@ -1,7 +1,7 @@
 <!-- <p>
 contact-form works!
 </p> -->
-<form action="">
+<form #fDirective="ngForm" (ngSubmit)="onSubmit(fDirective)">
 	<div class="form-group">
 		<label for="firstName">First Name</label>
 		<input 

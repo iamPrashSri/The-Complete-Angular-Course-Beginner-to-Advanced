@@ -11,4 +11,8 @@ export class ContactFormComponent {
     console.log(x);
   }
 
+  onSubmit(f){
+    console.log(f);
+  }
+
 }
