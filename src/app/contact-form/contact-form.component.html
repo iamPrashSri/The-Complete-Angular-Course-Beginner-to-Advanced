@@ -57,15 +57,15 @@ contact-form works!
       </select>
 		</div>
 
-    <div *ngFor="let method of contactMethods" class="radio">
-      <label for="">
+		<div *ngFor="let method of contactMethods" class="radio">
+			<label for="">
         <input 
           ngModel name="contactMethodRadio" 
           type="radio" 
           [value]="method.id">
           {{ method.name }}
       </label>
-    </div>
+		</div>
 
 		<p>
 			{{ fDirective.value | json }}
