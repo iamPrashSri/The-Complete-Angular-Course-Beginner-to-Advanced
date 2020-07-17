@@ -2,7 +2,11 @@
 contact-form works!
 </p> -->
 <form #fDirective="ngForm" (ngSubmit)="onSubmit(fDirective)">
-	<div class="form-group">
+  <div ngModelGroup="contact" #contact="ngModelGroup">
+    <div *ngIf="!contact.valid">
+      <!-- Validation Errors for this group -->
+    </div>
+    <div class="form-group">
 		<label for="firstName">First Name</label>
 		<input 
       required 
@@ -27,7 +31,8 @@ contact-form works!
         First Name should be maximum 10 characters
       </div>
 		</div>
-	</div>
+	  </div>
+  </div>
 	<div class="form-group">
 		<label for="comment">Comment</label>
 		<textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
