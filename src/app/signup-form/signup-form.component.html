@@ -13,6 +13,9 @@
         <div *ngIf="userName.errors.minLength">
           Username should be minimum {{ userName.errors.minLength.requiredLength }} characters
         </div>
+        <div *ngIf="userName.errors.cannotContainSpace">
+          Username cannot Spaces
+        </div>
     </div>
     </div>
 		<div class="form-group">
