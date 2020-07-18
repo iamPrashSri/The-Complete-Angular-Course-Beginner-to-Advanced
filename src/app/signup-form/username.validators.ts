@@ -1,7 +1,6 @@
 import { ValidationErrors, AbstractControl } from "@angular/forms";
 
 export class UsernameValidators {
-
   static cannotContainSpace(control: AbstractControl): ValidationErrors | null {
     if ((control.value as string).indexOf(" ") >= 0) {
       return {
@@ -17,18 +16,22 @@ export class UsernameValidators {
     return null;
   }
 
-    static shouldBeUnique(control: AbstractControl): ValidationErrors | null {
-      
-      // Asynchronous Operation. Need to di
+  static shouldBeUnique(
+    control: AbstractControl
+  ): Promise<ValidationErrors | null> {
+    return new Promise((resolve, reject) => {
+      // Asynchronous Operation. Returning a Promise Object
       setTimeout(() => {
-        if(control.value === 'mosh'){
-          return {
-            'shouldBeUnique' : true
-          };
-          return null;
+        if (control.value === "mosh") {
+          resolve({
+            shouldBeUnique: true
+          });
+        } else {
+          resolve(null);
         }
       }, 2000);
+    });
 
-      return null;
-    }
+    //return null;
+  }
 }
