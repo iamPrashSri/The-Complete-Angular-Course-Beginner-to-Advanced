@@ -7,11 +7,10 @@ import { HelloComponent } from './hello.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { NewcourseFormComponent } from './newcourse-form/newcourse-form.component';
-import { NewcomponentComponent } from './newcomponent/newcomponent.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, HelloComponent, ContactFormComponent, SignupFormComponent, NewcourseFormComponent, NewcomponentComponent ],
+  declarations: [ AppComponent, HelloComponent, ContactFormComponent, SignupFormComponent, NewcourseFormComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
