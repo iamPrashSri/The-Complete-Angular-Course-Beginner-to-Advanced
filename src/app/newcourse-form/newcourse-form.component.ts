@@ -20,4 +20,9 @@ export class NewcourseFormComponent {
   get topics(){
     return this.form.get('topics');
   }
+
+  removeTopic(topic: FormControl){
+    let index = this.topics['controls'].indexOf(topic);
+    (this.topics as FormArray).removeAt(index);
+  }
 }
