@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { PostService } from 'app/services/post.service';
 
 @Component({
   selector: 'posts',
@@ -9,17 +9,25 @@ import { HttpClient } from '@angular/common/http';
 export class PostsComponent implements OnInit {
 
   posts: any[];
-  private url = 'http://jsonplaceholder.typicode.com/posts';
-  constructor(private http: HttpClient) { 
-    http.get(this.url).subscribe(response => {
+  
+  constructor(private service: PostService) { 
+    /* http.get(this.url).subscribe(response => {
       //console.log(response);
       this.posts = response;
-    });  
+    });  */ 
+  }
+
+  // Lifecycle hook called at component initialization
+  ngOnInit(): void {
+    this.service.getPosts().subscribe(response => {
+      //console.log(response);
+      this.posts = response;
+    }); 
   }
 
   createPost(titleInput: HTMLInputElement){
     let postObj = { title: titleInput.value }
-    this.http.post(this.url, JSON.stringify(postObj)).subscribe(response => {
+    this.service.createPost(postObj).subscribe(response => {
       postObj['id'] = response['id'];
       this.posts.splice(0, 0, postObj);
       titleInput.value = ' ';
@@ -27,7 +35,18 @@ export class PostsComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  updatePost(post){
+    this.service.updatePost(post).subscribe(response => {
+      console.log(response);
+    });
+    /* this.http.put(this.url, JSON.stringify(post)); */
+  }
+
+  deletePost(post){
+    this.service.deletePost(post).subscribe(response => {
+      let index = this.posts.indexOf(post);
+      this.posts.splice(index, 1);
+    });
   }
 
 }
