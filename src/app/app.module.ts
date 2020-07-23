@@ -27,7 +27,7 @@ import { APP_BASE_HREF } from '@angular/common';
                   HttpClientModule,
                   RouterModule.forRoot([
                     {path: '', component: HomeComponent},
-                    {path: 'followers/:username', component: GithubProfileComponent},
+                    {path: 'followers/:id/:username', component: GithubProfileComponent},
                     {path: 'followers', component: GithubFollowersComponent},
                     {path: 'posts', component: PostsComponent},
                     {path: '**', component: NotFoundComponent}
